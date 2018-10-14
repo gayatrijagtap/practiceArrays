@@ -1,5 +1,5 @@
 const assert = require('assert');
-const countEvens = require('./countingEvenNumbers.js').countEvens;
+const countEvens = require('../arrayLibrary.js').countEvens;
 assert.equal(countEvens([1,2,3,4,5,6,7,8,9]),4);
 assert.equal(countEvens([1,2,3]),1);
 assert.equal(countEvens([1]),0);
