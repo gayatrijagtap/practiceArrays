@@ -113,6 +113,14 @@ const checkDescendingOrder = function(numbers) {
   return true;
 }
 
+const extractDigits = function(number) {
+  string = number.toString()
+  numbers = string.split('');
+  return numbers;
+}
+
+exports.extractDigits = extractDigits;
+
 exports.checkDescendingOrder=checkDescendingOrder;
 
 exports.countOdds = countOdds;
