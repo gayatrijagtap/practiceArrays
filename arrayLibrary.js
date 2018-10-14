@@ -164,6 +164,24 @@ const mapLengths = function(strings) {
   return stringLengths;
 }
 
+const partitionArray = function(numbers,number) {
+  let position = indexOfNumber(numbers,number);
+  let firstPartition = [];
+  let secondPartition = [];
+  let index = 0;
+  for(let i=0; i<position;i++ ) {
+    firstPartition[i] = numbers[i];
+  }
+  for(let i=position; i<numbers.length; i++) {
+    secondPartition[index]=numbers[i];
+    index++;
+  }
+  let partition = [firstPartition,secondPartition];
+  return partition;
+}
+
+exports.partitionArray = partitionArray;
+
 exports.mapLengths = mapLengths;
 
 exports.isSubset = isSubset;
