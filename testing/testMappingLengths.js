@@ -1,5 +1,5 @@
 const assert = require('assert');
-const mapLengths = require('./mappingLengths.js').mapLengths;
+const mapLengths = require('../arrayLibrary.js').mapLengths;
 assert.deepEqual(mapLengths(["ab","a","gayatri"]),[2,1,7]);
 assert.deepEqual(mapLengths(["ab","abcdef"]),[2,6]);
 assert.deepEqual(mapLengths(["prajakta","pallavi"]),[8,7]);
