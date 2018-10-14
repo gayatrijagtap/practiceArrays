@@ -1,5 +1,5 @@
 const assert = require('assert');
-const numbersAboveThreshold=require('./NumbersAboveThreshold.js').numbersAboveThreshold;
+const numbersAboveThreshold=require('../arrayLibrary.js').numbersAboveThreshold;
 assert.equal(numbersAboveThreshold([1,2,3,4],2),2);
 assert.equal(numbersAboveThreshold([1,2,3,4],3),1);
 assert.equal(numbersAboveThreshold([-1,-2,-3,-4],-4),3);
