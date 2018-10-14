@@ -190,6 +190,22 @@ const reverse = function(numbers) {
   return(reversedArray);
 }
 
+const createReverseFibo = function(limit) {
+  let series = [0,1];
+  let a=0;
+  let b=1;
+  let sum=0;
+  for(let i=2; i<limit; i++) {
+    sum=a+b;
+    a=b;
+    b=sum;
+    series[i]=sum;
+  }
+  return reverse(series);
+}
+
+exports.createReverseFibo = createReverseFibo;
+
 exports.reverse = reverse;
 
 exports.partitionArray = partitionArray;
