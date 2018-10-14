@@ -18,6 +18,19 @@ const numbersBelowThreshold = function(numbers,number) {
   return count;
 }
 
+const extractUniqueElements = function(numbers) {
+  let uniqueArray = [];
+  for(let i=0; i<numbers.length; i++) {
+    let number = numbers[i];
+    if(!uniqueArray.includes(number)) {
+      uniqueArray.push(number);
+    }
+  }
+  return uniqueArray;
+}
+
+exports.extractUniqueElements=extractUniqueElements;
+
 exports.numbersBelowThreshold = numbersBelowThreshold;
 
 exports.numbersAboveThreshold = numbersAboveThreshold;
