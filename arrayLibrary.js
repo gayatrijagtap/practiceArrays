@@ -40,6 +40,26 @@ const genDiff = function(numbers1,numbers2) {
   return diffArray;
 }
 
+const findIntersection = function(numbers1,numbers2,intersectionArray) {
+  for(let i=0; i<numbers1.length; i++) {
+    let element = numbers1[i];
+    if(numbers2.includes(element)) {
+      intersectionArray.push(element);
+    }
+  }
+  return intersectionArray;
+}
+
+const createIntersection = function(numbers1,numbers2) {
+  let intersectionArray = [];
+  intersectionArray = findIntersection(numbers1,numbers2,intersectionArray);
+  intersectionArray = findIntersection(numbers2,numbers1,intersectionArray);
+  intersectionArray = extractUniqueElements(intersectionArray);
+  return intersectionArray;
+}
+
+exports.createIntersection = createIntersection;
+
 exports.genDifference = genDiff;
 
 exports.extractUniqueElements=extractUniqueElements;
