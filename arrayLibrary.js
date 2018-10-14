@@ -156,6 +156,16 @@ const isSubset = function (numbers1,numbers2) {
   return true;
 }
 
+const mapLengths = function(strings) {
+  let stringLengths = [];
+  for(let i=0; i<strings.length; i++) {
+    stringLengths[i]=strings[i].length;
+  }
+  return stringLengths;
+}
+
+exports.mapLengths = mapLengths;
+
 exports.isSubset = isSubset;
 
 exports.indexOfNumber = indexOfNumber;
