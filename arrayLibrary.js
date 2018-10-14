@@ -256,6 +256,17 @@ const sumOfArrayElement = function(numbers) {
   return sum;
 }
 
+const zipArray = function(numbers1,numbers2) {
+  let zippedArray = [];
+  let shortestLen = Math.min(numbers1.length,numbers2.length);
+  for(let i=0; i<shortestLen; i++) {
+    zippedArray[i] = [numbers1[i],numbers2[i]];
+  }
+  return zippedArray;
+}
+
+exports.zipArray = zipArray;
+
 exports.sum=sumOfArrayElement;
 
 exports.smallestNum=smallestNumber;
