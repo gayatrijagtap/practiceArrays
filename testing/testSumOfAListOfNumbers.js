@@ -1,5 +1,5 @@
 const assert = require('assert');
-const sum = require('./sumOfAListOfNumbers.js').sum;
+const sum = require('../arrayLibrary.js').sum;
 assert.equal(sum([1,2,3,4]),10);
 assert.equal(sum([1,2,3,4,5,6,7,8,9,10]),55);
 assert.equal(sum([2,2]),4);
