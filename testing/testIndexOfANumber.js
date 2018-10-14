@@ -1,5 +1,5 @@
 const assert = require('assert');
-const indexOfNumber = require('./indexOfANumber.js').indexOfNumber;
+const indexOfNumber = require('../arrayLibrary.js').indexOfNumber;
 assert.equal(indexOfNumber([1,2,3,4],3),2);
 assert.equal(indexOfNumber([1,2,3,4],4),3);
 assert.equal(indexOfNumber([1,2,3,4],1),0);
