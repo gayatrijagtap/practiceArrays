@@ -75,6 +75,17 @@ const createUnion = function(numbers1,numbers2) {
   return unionArray;
 }
 
+const checkAscendingOrder = function(numbers) {
+  for(let i=0; i<numbers.length; i++) {
+    if(numbers[i]>numbers[i+1]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+exports.checkAscendingOrder=checkAscendingOrder;
+
 exports.createUnion = createUnion;
 
 exports.createIntersection = createIntersection;
