@@ -29,6 +29,19 @@ const extractUniqueElements = function(numbers) {
   return uniqueArray;
 }
 
+const genDiff = function(numbers1,numbers2) {
+  let diffArray = [];
+  for(let i=0; i<numbers1.length; i++) {
+    let number = numbers1[i];
+    if(!numbers2.includes(number)) {
+      diffArray.push(number);
+    }
+  }
+  return diffArray;
+}
+
+exports.genDifference = genDiff;
+
 exports.extractUniqueElements=extractUniqueElements;
 
 exports.numbersBelowThreshold = numbersBelowThreshold;
