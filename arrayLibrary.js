@@ -146,6 +146,18 @@ const indexOfNumber = function(numbers,number) {
   return "unmatched";
 }
 
+const isSubset = function (numbers1,numbers2) {
+  for(let i=0; i<numbers1.length; i++) {
+    let number = numbers1[i];
+    if(!numbers2.includes(number)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+exports.isSubset = isSubset;
+
 exports.indexOfNumber = indexOfNumber;
 exports.greatestNum=greatestNumber;
 
