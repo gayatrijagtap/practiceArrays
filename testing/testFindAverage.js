@@ -1,5 +1,5 @@
 const assert = require('assert');
-const average = require('./findAverage.js').genAverage;
+const average = require('../arrayLibrary.js').genAverage;
 assert.equal(average([1,2,3]),2);
 assert.equal(average([15,15,15]),15);
 assert.equal(average([5,10,15]),10);
