@@ -58,6 +58,25 @@ const createIntersection = function(numbers1,numbers2) {
   return intersectionArray;
 }
 
+const findUnion = function(numbers1,numbers2,unionArray) {
+  for(let i=0; i<numbers1.length; i++) {
+    let element = numbers1[i];
+    if(!numbers2.includes(element)) {
+      unionArray.push(element);
+    }
+  }
+  return unionArray;
+}
+
+const createUnion = function(numbers1,numbers2) {
+  let unionArray = [];
+  unionArray = findUnion(numbers1,numbers2,unionArray);
+  unionArray = findUnion(numbers2,numbers1,unionArray);
+  return unionArray;
+}
+
+exports.createUnion = createUnion;
+
 exports.createIntersection = createIntersection;
 
 exports.genDifference = genDiff;
