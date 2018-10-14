@@ -1,5 +1,5 @@
 const assert=require('assert');
-const greatestNum = require('./greatestNumber.js').greatestNum;
+const greatestNum = require('../arrayLibrary.js').greatestNum;
 assert.equal(greatestNum([1,2,3]),3);
 assert.equal(greatestNum([-1,3,7,8]),8);
 assert.equal(greatestNum([-1,-2,-3,-4]),-1);
