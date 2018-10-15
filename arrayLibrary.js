@@ -288,6 +288,7 @@ exports.mapLengths = mapLengths;
 exports.isSubset = isSubset;
 
 exports.indexOfNumber = indexOfNumber;
+
 exports.greatestNum=greatestNumber;
 
 exports.genAverage=genAverage;
