@@ -265,6 +265,23 @@ const zipArray = function(numbers1,numbers2) {
   return zippedArray;
 }
 
+const rotateArray = function(numbers,number) {
+  let rotatedArray = [];
+  let index = 0;
+  let position = indexOfNumber(numbers,number); 
+  for(let i=position; i<numbers.length; i++) {
+    rotatedArray[index] = numbers[i];
+    index++;
+  }
+  for(let i=0; i<position; i++) {
+    rotatedArray[index]=numbers[i];
+    index++;
+  }
+  return rotatedArray;
+}
+
+exports.rotateArray = rotateArray;
+
 exports.zipArray = zipArray;
 
 exports.sum=sumOfArrayElement;
