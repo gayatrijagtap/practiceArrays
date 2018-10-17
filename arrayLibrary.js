@@ -1,4 +1,4 @@
-const numbersAboveThreshold = function(numbers,number) {
+const countNumbersAboveThreshold = function(numbers,number) {
   let count = 0;
   for(let i=0; i<numbers.length; i++) {
     if(numbers[i]>number) {
@@ -8,7 +8,7 @@ const numbersAboveThreshold = function(numbers,number) {
   return count;
 }
 
-const numbersBelowThreshold = function(numbers,number) {
+const countNumbersBelowThreshold = function(numbers,number) {
   let count = 0;
   for(let i=0; i<numbers.length; i++) {
     if(numbers[i]<number) {
@@ -30,21 +30,21 @@ const extractUniqueElements = function(numbers) {
 }
 
 const genDiff = function(numbers1,numbers2) {
-  let diffArray = [];
+  let differenceArray = [];
   for(let i=0; i<numbers1.length; i++) {
     let number = numbers1[i];
     if(!numbers2.includes(number)) {
-      diffArray.push(number);
+      differenceArray.push(number);
     }
   }
-  return diffArray;
+  return differenceArray;
 }
 
 const findIntersection = function(numbers1,numbers2,intersectionArray) {
   for(let i=0; i<numbers1.length; i++) {
-    let element = numbers1[i];
-    if(numbers2.includes(element)) {
-      intersectionArray.push(element);
+    let number = numbers1[i];
+    if(numbers2.includes(number)) {
+      intersectionArray.push(number);
     }
   }
   return intersectionArray;
@@ -60,9 +60,9 @@ const createIntersection = function(numbers1,numbers2) {
 
 const findUnion = function(numbers1,numbers2,unionArray) {
   for(let i=0; i<numbers1.length; i++) {
-    let element = numbers1[i];
-    if(!numbers2.includes(element)) {
-      unionArray.push(element);
+    let number = numbers1[i];
+    if(!numbers2.includes(number)) {
+      unionArray.push(number);
     }
   }
   return unionArray;
@@ -192,13 +192,13 @@ const reverse = function(numbers) {
 
 const createReverseFibo = function(limit) {
   let series = [0,1];
-  let a=0;
-  let b=1;
+  let prevTerm=0;
+  let currentTerm=1;
   let sum=0;
   for(let i=2; i<limit; i++) {
-    sum=a+b;
-    a=b;
-    b=sum;
+    sum=prevTerm+currentTerm;
+    prevTerm=currentTerm;
+    currentTerm=sum;
     series[i]=sum;
   }
   return reverse(series);
@@ -311,6 +311,6 @@ exports.genDifference = genDiff;
 
 exports.extractUniqueElements=extractUniqueElements;
 
-exports.numbersBelowThreshold = numbersBelowThreshold;
+exports.numbersBelowThreshold = countNumbersBelowThreshold;
 
-exports.numbersAboveThreshold = numbersAboveThreshold;
+exports.numbersAboveThreshold = countNumbersAboveThreshold;
