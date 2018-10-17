@@ -238,7 +238,7 @@ const printOddSeries = function(numbers) {
   return series;
 }
 
-const smallestNumber = function(numbers) {
+const printSmallestNumber = function(numbers) {
   let smallestNum = numbers[0];
   for(let i=0; i<numbers.length; i++) {
     if(numbers[i]<smallestNum) {
@@ -269,7 +269,7 @@ exports.zipArray = zipArray;
 
 exports.sum=sumOfArrayElement;
 
-exports.smallestNum=smallestNumber;
+exports.smallestNum=printSmallestNumber;
 
 exports.oddSeries=printOddSeries
 
