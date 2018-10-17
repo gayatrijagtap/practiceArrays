@@ -1,284 +1,342 @@
-const countNumbersAboveThreshold = function(numbers,number) {
+/*This function counts how many numbers are above a certain threshold in an array*/
+
+const countNumbersAboveThreshold = function( numbers,number ) {
   let count = 0;
-  for(let i=0; i<numbers.length; i++) {
-    if(numbers[i]>number) {
+  for ( let index = 0; index < numbers.length; index++ ) {
+    if ( numbers[index] > number ) {
+      count++;
+    } 
+  }
+  return count;
+}
+
+/* This function counts how many numbers below a certain threshold in an array*/
+
+const countNumbersBelowThreshold = function( numbers,number ) {
+  let count = 0;
+  for ( let index = 0; index < numbers.length; index++ ) {
+    if ( numbers[index] < number ) {
       count++;
     }
   }
   return count;
 }
 
-const countNumbersBelowThreshold = function(numbers,number) {
-  let count = 0;
-  for(let i=0; i<numbers.length; i++) {
-    if(numbers[i]<number) {
-      count++;
-    }
-  }
-  return count;
-}
+/*Given an array, remove duplicate elements and return an array of only unique elements.*/
 
-const extractUniqueElements = function(numbers) {
+const extractUniqueElements = function( numbers ) {
   let uniqueArray = [];
-  for(let i=0; i<numbers.length; i++) {
-    let number = numbers[i];
-    if(!uniqueArray.includes(number)) {
-      uniqueArray.push(number);
+  for ( let index = 0; index < numbers.length; index++ ) {
+    let number = numbers[index];
+    if ( !uniqueArray.includes( number ) ) {
+      uniqueArray.push( number );
     }
   }
   return uniqueArray;
 }
 
-const genDiff = function(numbers1,numbers2) {
+/* Given two arrays, generate a new array that consists of unique elements that are present in the first array, but not in the second.*/
+
+const generateDifference = function( firstArray,secondArray ) {
   let differenceArray = [];
-  for(let i=0; i<numbers1.length; i++) {
-    let number = numbers1[i];
-    if(!numbers2.includes(number)) {
-      differenceArray.push(number);
+  for ( let index = 0; index < firstArray.length; index++ ) {
+    let element = firstArray[index];
+    if ( !secondArray.includes( element ) ) {
+      differenceArray.push( element );
     }
   }
   return differenceArray;
 }
 
-const findIntersection = function(numbers1,numbers2,intersectionArray) {
-  for(let i=0; i<numbers1.length; i++) {
-    let number = numbers1[i];
-    if(numbers2.includes(number)) {
-      intersectionArray.push(number);
+/*Given two arrays, gives the elements that are contained in both the arrays*/
+
+const findIntersection = function( firstArray,secondArray,intersectionArray ) {
+  for ( let index = 0; index < firstArray.length; index++ ) {
+    let element = firstArray[index];
+    if ( secondArray.includes( element ) ) {
+      intersectionArray.push( element );
     }
   }
   return intersectionArray;
 }
 
-const createIntersection = function(numbers1,numbers2) {
+/*Given two arrays, generate a new array consisting of unique elements that are contained in both arrays.*/
+
+const createIntersection = function( firstArray,secondArray ) {
   let intersectionArray = [];
-  intersectionArray = findIntersection(numbers1,numbers2,intersectionArray);
-  intersectionArray = findIntersection(numbers2,numbers1,intersectionArray);
-  intersectionArray = extractUniqueElements(intersectionArray);
+  intersectionArray = findIntersection( firstArray,secondArray,intersectionArray );
+  intersectionArray = findIntersection( firstArray,secondArray,intersectionArray );
+  intersectionArray = extractUniqueElements( intersectionArray );
   return intersectionArray;
 }
 
-const findUnion = function(numbers1,numbers2,unionArray) {
-  for(let i=0; i<numbers1.length; i++) {
-    let number = numbers1[i];
-    if(!numbers2.includes(number)) {
-      unionArray.push(number);
+/*Given two arrays, gives the new array consisting of the elements which are included in both the arrays.*/
+
+const findUnion = function( firstArray,secondArray,unionArray ) {
+  for (let index = 0; index < firstArray.length; index++) {
+    let element = firstArray[index];
+    if ( !secondArray.includes( element ) ) {
+      unionArray.push( element );
     }
   }
   return unionArray;
 }
 
-const createUnion = function(numbers1,numbers2) {
+/*Given two arrays, generate a new array consisting of unique elements across both those arrays.*/
+
+const createUnion = function( firstArray,secondArray ) {
   let unionArray = [];
-  unionArray = findUnion(numbers1,numbers2,unionArray);
-  unionArray = findUnion(numbers2,numbers1,unionArray);
+  unionArray = findUnion( firstArray,secondArray,unionArray );
+  unionArray = findUnion( secondArray,firstArray,unionArray );
   return unionArray;
 }
 
-const checkAscendingOrder = function(numbers) {
-  for(let i=0; i<numbers.length; i++) {
-    if(numbers[i]>numbers[i+1]) {
+/*Given an array of numbers, check if the array is in ascending order*/
+
+const checkAscendingOrder = function( numbers ) {
+  for ( let index = 0; index < numbers.length; index++ ) {
+    if ( numbers[index] > numbers[index+1] ) {
       return false;
     }
   }
   return true;
 }
 
-const countEvens = function(numbers) {
+/*A function to count how many even numbers are present in an array*/
+
+const countEvens = function( numbers ) {
   let count = 0;
-  for(let i=0; i<numbers.length; i++) {
-    if(numbers[i]%2 == 0){
+  for ( let index = 0; index < numbers.length; index++ ) {
+    if ( numbers[index] % 2 == 0 ) {
       count++;
     }
   }
   return count;
 }
 
-const countOdds = function(numbers) {
+/*A function to count how many odd numbers are present in an array*/
+
+const countOdds = function( numbers ) {
   let count = 0;
-  for(let i=0; i<numbers.length; i++) {
-    if(numbers[i]%2 != 0){
+  for ( let index = 0; index < numbers.length; index++ ) {
+    if ( numbers[index] % 2 != 0 ){
       count++;
     }
   }
   return count;
 }
 
-const checkDescendingOrder = function(numbers) {
-  for(let i=0; i<numbers.length; i++) {
-    if(numbers[i]<numbers[i+1]) {
+/*Given an array of numbers, check if the array is in descending order*/
+
+const checkDescendingOrder = function( numbers ) {
+  for ( let index = 0; index < numbers.length; index++ ) {
+    if ( numbers[index] < numbers[index+1] ) {
       return false;
     }
   }
   return true;
 }
 
-const extractDigits = function(number) {
+/*Given a number, extract the digits of a number into an array*/
+
+const extractDigits = function( number ) {
   string = number.toString()
   numbers = string.split('');
   return numbers;
 }
 
-const genAverage = function(numbers) {
+/*Given a list of numbers, find the average of that list*/
+
+const genAverage = function( numbers ) {
   let sum = 0;
-  for(let i=0; i<numbers.length; i++) {
-    sum = sum+numbers[i];
+  for ( let index = 0; index < numbers.length; index++ ) {
+    sum = sum + numbers[index];
   }
-  return sum/numbers.length;
+  return ( sum / numbers.length );
 }
 
-const printGreatestNumber = function(numbers) {
+/*Given a list of numbers, find the greatest number in that sequence*/
+
+const printGreatestNumber = function( numbers ) {
   let greatestNum = numbers[0];
-  for(let i=0; i<numbers.length; i++) {
-    if(numbers[i]>greatestNum) {
-      greatestNum = numbers[i];
+  for ( let index = 0; index < numbers.length; index++ ) {
+    if ( numbers[index] > greatestNum ) {
+      greatestNum = numbers[index];
     }
   }
   return greatestNum;
 }
 
-const indexOfNumber = function(numbers,number) {
-  for(let i=0; i<numbers.length; i++) {
-    if(numbers[i] == number) {
-      return i;
+/*Given an array of numbers find the first position of a specified number*/
+
+const indexOfNumber = function( numbers,number ) {
+  for ( let index = 0; index < numbers.length; index++ ) {
+    if ( numbers[index] == number ) {
+      return index;
     }
   }
   return "unmatched";
 }
 
-const isSubset = function (numbers1,numbers2) {
-  for(let i=0; i<numbers1.length; i++) {
-    let number = numbers1[i];
-    if(!numbers2.includes(number)) {
+/*Given two arrays, check if the second is a proper subset of the first.*/
+
+const isSubset = function ( firstArray,secondArray ) {
+  for ( let index = 0; index < firstArray.length; index++ ) {
+    let element = firstArray[index];
+    if ( !secondArray.includes( element ) ) {
       return false;
     }
   }
   return true;
 }
 
-const mapLengths = function(strings) {
+/*Given a list of names, generate another array that contains the length of each of the names*/
+
+const mapLengths = function( strings ) {
   let stringLengths = [];
-  for(let i=0; i<strings.length; i++) {
-    stringLengths[i]=strings[i].length;
+  for ( let index = 0; index < strings.length; index++ ) {
+    stringLengths[index] = strings[index].length;
   }
   return stringLengths;
 }
 
-const partitionArray = function(numbers,number) {
-  let position = indexOfNumber(numbers,number);
+/*Given an array of numbers, it returns a partitioned array consisting of numbers above a certain number and below a certain number*/
+
+const partitionArray = function( numbers,number ) {
+  let position = indexOfNumber( numbers,number );
   let firstPartition = [];
   let secondPartition = [];
   let index = 0;
-  for(let i=0; i<position;i++ ) {
-    firstPartition[i] = numbers[i];
+  for ( let count = 0; count < position; count++ ) {
+    firstPartition[count] = numbers[count];
   }
-  for(let i=position; i<numbers.length; i++) {
-    secondPartition[index]=numbers[i];
+  for ( let count = position; count < numbers.length; count++ ) {
+    secondPartition[index] = numbers[count];
     index++;
   }
-  let partition = [firstPartition,secondPartition];
+  let partition = [ firstPartition,secondPartition ];
   return partition;
 }
 
-const reverse = function(numbers) {
-  let index=0;
+/*Given a list of numbers, print the list in reverse order*/
+
+const reverse = function( numbers ) {
+  let index = 0;
   let reversedArray = [];
-  for(let i=numbers.length-1; i>=0; i--) {
-    reversedArray[index]=numbers[i];
+  for ( let count = numbers.length-1; count >= 0; count-- ) {
+    reversedArray[index] = numbers[count];
     index++;
   }
-  return(reversedArray);
+  return reversedArray;
 }
 
-const createReverseFibo = function(limit) {
-  let series = [0,1];
-  let prevTerm=0;
-  let currentTerm=1;
-  let sum=0;
-  for(let i=2; i<limit; i++) {
-    sum=prevTerm+currentTerm;
-    prevTerm=currentTerm;
-    currentTerm=sum;
-    series[i]=sum;
+/*Generate a fibonacci sequence of length n in reverse order*/
+
+const createReverseFibo = function( limit ) {
+  let series = [ 0,1 ];
+  let prevTerm = 0;
+  let currentTerm = 1;
+  let sum = 0;
+  for ( let index = 2; index < limit; index++ ) {
+    sum = prevTerm + currentTerm;
+    prevTerm = currentTerm;
+    currentTerm = sum;
+    series[index] = sum;
   }
-  return reverse(series);
+  return reverse( series );
 }
 
-const printEvenSeries = function(numbers) {
+/*Given a list of numbers, select the ones that are even*/
+
+const printEvenSeries = function( numbers ) {
   let series = [];
   let seriesIndex = 0;
-  for(let i=0;i<numbers.length; i++) {
-    if(numbers[i]%2 == 0) {
-      series[seriesIndex]=numbers[i];
+  for ( let index = 0; index < numbers.length; index++ ) {
+    if ( numbers[index] % 2 == 0 ) {
+      series[seriesIndex] = numbers[index];
       seriesIndex++;
     }
   }
   return series;
 }
 
-const selectSecondElement = function(numbers) {
+/*Given a list of numbers, select every second one*/
+
+const selectSecondElement = function( numbers ) {
   let selectedElements = [];
-  let index = 0;
-  for(let i=0; i<numbers.length; i= i+2) {
-    selectedElements[index]=numbers[i];
-    index++;
+  let count = 0;
+  for ( let index = 0; index < numbers.length; index = index + 2 ) {
+    selectedElements[count] = numbers[index];
+    count++;
   }
   return selectedElements;
 }
 
-const printOddSeries = function(numbers) {
+/*Given a list of numbers, select the ones that are odd*/
+
+const printOddSeries = function( numbers ) {
   let series = [];
   let seriesIndex = 0;
-  for(let i=0;i<numbers.length; i++) {
-    if(numbers[i]%2 != 0) {
-      series[seriesIndex]=numbers[i];
+  for ( let index = 0; index < numbers.length; index++ ) {
+    if ( numbers[index] % 2 != 0 ) {
+      series[seriesIndex] = numbers[index];
       seriesIndex++;
     }
   }
   return series;
 }
 
-const printSmallestNumber = function(numbers) {
+/*Given a list of numbers, find the lowest number in that sequence*/
+
+const printSmallestNumber = function( numbers ) {
   let smallestNum = numbers[0];
-  for(let i=0; i<numbers.length; i++) {
-    if(numbers[i]<smallestNum) {
-      smallestNum = numbers[i];
+  for ( let index = 0; index < numbers.length; index++ ) {
+    if ( numbers[index] < smallestNum ) {
+      smallestNum = numbers[index];
     }
   }
   return smallestNum;
 }
 
-const sumOfArrayElement = function(numbers) {
-  let sum=0;
-  for(let i=0; i<numbers.length; i++) {
-    sum = sum + numbers[i];
+/*Given a list of numbers, find the sum of all these numbers*/
+
+const sumOfArrayElement = function( numbers ) {
+  let sum = 0;
+  for ( let index = 0; index < numbers.length; index++ ) {
+    sum = sum + numbers[index];
   }
   return sum;
 }
 
-const zipArray = function(numbers1,numbers2) {
+/*Insert elements from two arrays and create zip*/
+
+const zipArray = function( firstArray,secondArray ) {
   let zippedArray = [];
-  let shortestLen = Math.min(numbers1.length,numbers2.length);
-  for(let i=0; i<shortestLen; i++) {
-    zippedArray[i] = [numbers1[i],numbers2[i]];
+  let shortestLen = Math.min( firstArray.length,secondArray.length );
+  for ( let index = 0; index < shortestLen; index++ ) {
+    zippedArray[index] = [ firstArray[index],secondArray[index] ];
   }
   return zippedArray;
 }
 
-const rotateArray = function(numbers,number) {
+/*creates a new array by rotating elements from the given array.*/
+
+const rotateArray = function( numbers,number ) {
   let rotatedArray = [];
   let index = 0;
-  let position = indexOfNumber(numbers,number); 
-  for(let i=position; i<numbers.length; i++) {
-    rotatedArray[index] = numbers[i];
+  let position = indexOfNumber( numbers,number ); 
+  for ( let count = position; count < numbers.length; count++ ) {
+    rotatedArray[index] = numbers[count];
     index++;
   }
-  for(let i=0; i<position; i++) {
-    rotatedArray[index]=numbers[i];
+  for ( let count = 0; count < position; count++ ) {
+    rotatedArray[index] = numbers[count];
     index++;
   }
   return rotatedArray;
 }
+
+//----------------------------exporting all the functions--------------------------------------------
 
 exports.rotateArray = rotateArray;
 
@@ -324,7 +382,7 @@ exports.createUnion = createUnion;
 
 exports.createIntersection = createIntersection;
 
-exports.genDifference = genDiff;
+exports.generateDifference = generateDifference;
 
 exports.extractUniqueElements=extractUniqueElements;
 
