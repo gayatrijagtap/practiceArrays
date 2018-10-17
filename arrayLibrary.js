@@ -127,7 +127,7 @@ const genAverage = function(numbers) {
   return sum/numbers.length;
 }
 
-const greatestNumber = function(numbers) {
+const printGreatestNumber = function(numbers) {
   let greatestNum = numbers[0];
   for(let i=0; i<numbers.length; i++) {
     if(numbers[i]>greatestNum) {
@@ -289,7 +289,7 @@ exports.isSubset = isSubset;
 
 exports.indexOfNumber = indexOfNumber;
 
-exports.greatestNum=greatestNumber;
+exports.greatestNum=printGreatestNumber;
 
 exports.genAverage=genAverage;
 
