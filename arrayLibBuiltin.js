@@ -1,4 +1,5 @@
 //-----------------extracting even numbers in an array-------------------------
+
 const selectEvens = function(numbers) {
  let evenElements = numbers.filter( function(element) { return element%2 == 0 } )
   return evenElements;
@@ -32,3 +33,12 @@ const reverse = function(numbers) {
 }
 
 exports.reverse = reverse;
+
+//------------------------print every second element in an array-------------------------
+
+const selectAlternates = function(numbers) {
+  let alternates = numbers.filter( function( element,index ) { return index%2 == 0;} )
+  return alternates;
+}
+
+exports.selectAlternates = selectAlternates;
