@@ -23,3 +23,12 @@ const findSum = function(numbers) {
 }
 
 exports.findSum = findSum;
+
+//--------------------reverse array elements---------------------------------------
+
+const reverse = function(numbers) {
+  let reversedNumbers = numbers.reduce( function( firstElement,secondElement ) { firstElement.unshift(secondElement); return firstElement; } , [] )
+  return reversedNumbers;
+}
+
+exports.reverse = reverse;

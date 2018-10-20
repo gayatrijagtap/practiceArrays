@@ -1,5 +1,5 @@
 const assert = require('assert');
-let reverse = require('../arrayLibrary.js').reverse;
+let reverse = require('../arrayLibBuiltin.js').reverse;
 
 let numbers = [1,2,3,4,5];
 assert.deepEqual(reverse(numbers),[5,4,3,2,1]);
