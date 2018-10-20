@@ -51,3 +51,13 @@ const findGreatestNumber = function(numbers) {
 }
 
 exports.findGreatestNumber = findGreatestNumber;
+
+//--------------------------finding the smallest number in an array--------------------------
+
+const findSmallestNumber = function(numbers) {
+  let smallestNumber = numbers.reduce(function(firstElement,secondElement) { if(firstElement<secondElement) return firstElement; return secondElement; } )
+  return smallestNumber;
+}
+
+exports.findSmallestNumber = findSmallestNumber;
+
