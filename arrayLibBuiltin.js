@@ -61,3 +61,11 @@ const findSmallestNumber = function(numbers) {
 
 exports.findSmallestNumber = findSmallestNumber;
 
+//----------------------------find the average of all the elements in an array-------------------
+
+const findAverage = function(numbers) {
+  let average = numbers.reduce(function(firstElement,secondElement) { return firstElement+secondElement; }) / numbers.length;
+  return average;
+}
+
+exports.findAverage = findAverage;
