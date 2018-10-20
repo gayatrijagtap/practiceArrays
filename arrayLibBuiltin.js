@@ -78,3 +78,13 @@ const mapLengths = function(list) {
 }
 
 exports.mapLengths = mapLengths;
+
+//------------------------------count even numbers in an array--------------------------------
+
+const countEvens = function(numbers) {
+  let count = 0;
+  let evenCount = numbers.filter(function(element) { if (element%2 == 0) count++; return; } )
+  return count;
+}
+
+exports.countEvens = countEvens;
