@@ -98,3 +98,13 @@ const countOdds = function(numbers) {
 }
 
 exports.countOdds = countOdds;
+
+//--------------------------------find numbers below certain threshold----------------------------
+
+const findNumBelowThreshold  = function(numbers,number) {
+  let count = 0;
+  numbers.filter(function(element) { if(element<number) count++; } )
+  return count;
+}
+
+exports.findNumBelowThreshold = findNumBelowThreshold;
