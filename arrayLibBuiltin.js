@@ -69,3 +69,12 @@ const findAverage = function(numbers) {
 }
 
 exports.findAverage = findAverage;
+
+//-----------------------------map the length of an array elements---------------------------------
+
+const mapLengths = function(list) {
+  let lengthsMapping = list.map(function(element) { return element.length; } )
+  return lengthsMapping;
+}
+
+exports.mapLengths = mapLengths;
