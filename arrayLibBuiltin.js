@@ -15,3 +15,11 @@ const selectOdds = function(numbers) {
 
 exports.selectOdds = selectOdds;
 
+//-------------------find sum of all elements of an array------------------------
+
+const findSum = function(numbers) {
+  let sum = numbers.reduce( function( firstElement,secondElement ) { return firstElement+secondElement; } )
+  return sum;
+}
+
+exports.findSum = findSum;
