@@ -42,3 +42,12 @@ const selectAlternates = function(numbers) {
 }
 
 exports.selectAlternates = selectAlternates;
+
+//-------------------------finding the greatest number in an array -------------------------
+
+const findGreatestNumber = function(numbers) {
+  let greatestNumber = numbers.reduce(function(firstElement,secondElement) { if(firstElement>secondElement) return firstElement; return secondElement; } )
+  return greatestNumber;
+}
+
+exports.findGreatestNumber = findGreatestNumber;
