@@ -83,8 +83,18 @@ exports.mapLengths = mapLengths;
 
 const countEvens = function(numbers) {
   let count = 0;
-  let evenCount = numbers.filter(function(element) { if (element%2 == 0) count++; return; } )
+  numbers.filter(function(element) { if (element%2 == 0) count++; return; } )
   return count;
 }
 
 exports.countEvens = countEvens;
+
+//------------------------------count odd numbers in an array-----------------------------------
+
+const countOdds = function(numbers) {
+  let count = 0;
+  numbers.filter(function(element) { if (element%2 != 0) count++; return; } )
+  return count;
+}
+
+exports.countOdds = countOdds;
