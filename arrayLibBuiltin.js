@@ -108,3 +108,14 @@ const findNumBelowThreshold  = function(numbers,number) {
 }
 
 exports.findNumBelowThreshold = findNumBelowThreshold;
+
+//------------------------------find numbers above certain threshold------------------------------
+
+const findNumAboveThreshold = function(numbers,number) {
+  let count = 0;
+  numbers.filter(function(element) { if(element>number) count++; } )
+  return count;
+}
+
+exports.findNumAboveThreshold = findNumAboveThreshold;
+
