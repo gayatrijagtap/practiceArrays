@@ -119,3 +119,12 @@ const findNumAboveThreshold = function(numbers,number) {
 
 exports.findNumAboveThreshold = findNumAboveThreshold;
 
+//-----------------------------find index of the number---------------------------------------------
+
+const findIndex = function(numbers,number) {
+  let index = 0;
+  numbers.filter(function(element,position) { if(element == number) index = position; return; } )
+  return index;
+}
+
+exports.findIndex = findIndex;
