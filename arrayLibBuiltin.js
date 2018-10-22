@@ -170,3 +170,12 @@ const findDifference = function(firstList,secondList) {
 }
 
 exports.findDifference = findDifference;
+
+//---------------------------------check if first list is subset of second list------------------------------
+
+const isSubset = function(firstList,secondList) {
+  return firstList.every(function(element) { return secondList.includes(element); } );
+}
+
+exports.isSubset = isSubset;
+
