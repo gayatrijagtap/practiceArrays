@@ -179,3 +179,18 @@ const isSubset = function(firstList,secondList) {
 
 exports.isSubset = isSubset;
 
+//----------------------------------check if the given list is in ascending order or not------------------------
+
+const isAscending = function(list) {
+  let state = { prevState : true , prevElement : list[0] };
+  list.reduce(function(state,currentElement) { 
+    let { prevState,prevElement } = state;
+    state.prevState = (prevElement <= currentElement) && prevState;
+    state.prevElement = currentElement;
+    return state; 
+  } , state
+  )
+  return state.prevState;
+}
+
+exports.isAscending = isAscending;
