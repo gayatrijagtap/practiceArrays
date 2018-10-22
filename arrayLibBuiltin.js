@@ -138,3 +138,14 @@ const findUniques = function(list) {
 }
 
 exports.findUniques = findUniques;
+
+//------------------------------find the union of two arrays--------------------------------------
+
+const findUnion = function(firstList,secondList) {
+  let unionList = [];
+  firstList.filter(function(element) { if(!secondList.includes(element)) unionList.push(element); return; } )
+  secondList.filter(function(element) { if(!firstList.includes(element)) unionList.push(element); return; } )
+  return unionList;
+}
+
+exports.findUnion = findUnion;
