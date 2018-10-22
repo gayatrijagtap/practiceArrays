@@ -160,3 +160,13 @@ const findIntersection = function(firstList,secondList) {
 }
 
 exports.findIntersection = findIntersection;
+
+//---------------------------------find the difference between two arrays--------------------------------
+
+const findDifference = function(firstList,secondList) {
+  let difference = [];
+  firstList.filter(function(element) { if(!secondList.includes(element)) difference.push(element); return; } )
+  return difference;
+}
+
+exports.findDifference = findDifference;
