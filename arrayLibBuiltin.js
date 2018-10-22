@@ -149,3 +149,14 @@ const findUnion = function(firstList,secondList) {
 }
 
 exports.findUnion = findUnion;
+
+//--------------------------------find the intersection of two arrays--------------------------------
+
+const findIntersection = function(firstList,secondList) {
+  let intersectionList = [];
+  firstList.filter(function(element) { if(!secondList.includes(element)) intersectionList.push(element); return; } )
+  secondList.filter(function(element) { if(!intersectionList.includes(element)) intersectionList.push(element); return; } )
+  return intersectionList;
+}
+
+exports.findIntersection = findIntersection;
