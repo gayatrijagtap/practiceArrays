@@ -128,3 +128,13 @@ const findIndex = function(numbers,number) {
 }
 
 exports.findIndex = findIndex;
+
+//-------------------------------find the unique elements in an array by removing duplicates------------
+
+const findUniques = function(list) {
+  let uniqueElements = [];
+  list.filter(function(element) { if( !uniqueElements.includes(element) ) uniqueElements.push( element ); return; } )
+  return uniqueElements;
+}
+
+exports.findUniques = findUniques;
