@@ -231,3 +231,13 @@ const rotate = function( list,position ) {
 }
 
 exports.rotate = rotate;
+
+//---------------------------------------partition the list------------------------------------------------
+
+const partition = function( list,partitioner ) {
+  let partitionHolder = { firstPartition : [] , secondPartition : [] };
+  result = list.reduce( function( partitionHolder,listElement ) { if( listElement<partitioner ) { partitionHolder.firstPartition.push( listElement ); return partitionHolder; } partitionHolder.secondPartition.push( listElement ); return partitionHolder; } , partitionHolder );
+  return [ result.firstPartition,result.secondPartition ];
+}
+
+exports.partition = partition;
