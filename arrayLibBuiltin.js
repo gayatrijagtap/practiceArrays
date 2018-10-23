@@ -13,7 +13,11 @@ exports.selectEvens = selectEvens;
 //------------------extracting odd numbers in an array--------------------------
 
 const selectOdds = function(numbers) {
- let oddElements = numbers.filter( function(element) { return element%2 != 0 } )
+  const isOdd = function(element)
+  {
+    return element%2 != 0; 
+  }
+  let oddElements = numbers.filter( isOdd );
   return oddElements;
 }
 
