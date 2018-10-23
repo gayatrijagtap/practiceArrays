@@ -26,8 +26,11 @@ exports.selectOdds = selectOdds;
 //-------------------find sum of all elements of an array------------------------
 
 const findSum = function(numbers) {
-  let sum = numbers.reduce( function( firstElement,secondElement ) { return firstElement+secondElement; } )
-  return sum;
+  const sum = function( firstElement,secondElement ) 
+  { 
+    return firstElement+secondElement; 
+  }
+  return numbers.reduce( sum );
 }
 
 exports.findSum = findSum;
@@ -35,7 +38,11 @@ exports.findSum = findSum;
 //--------------------reverse array elements---------------------------------------
 
 const reverse = function(numbers) {
-  let reversedNumbers = numbers.reduce( function( firstElement,secondElement ) { firstElement.unshift(secondElement); return firstElement; } , [] )
+  const reverseNumbers = function( firstElement,secondElement ) 
+  { 
+    firstElement.unshift(secondElement); return firstElement; 
+  }
+  let reversedNumbers = numbers.reduce( reverseNumbers, [] );
   return reversedNumbers;
 }
 
@@ -44,8 +51,16 @@ exports.reverse = reverse;
 //------------------------print every second element in an array-------------------------
 
 const selectAlternates = function(numbers) {
-  let alternates = numbers.filter( function( element,index ) { return index%2 == 0;} )
-  return alternates;
+  let object = { index: 0 , value: [] };
+  const findAlternates = function(object,element) {
+    if(object.index%2 == 0) {
+      object.value.push(element); 
+    } 
+    object.index++; 
+    return object;
+  }
+  let alternates = numbers.reduce( findAlternates,object )
+  return alternates.value;
 }
 
 exports.selectAlternates = selectAlternates;
@@ -53,7 +68,13 @@ exports.selectAlternates = selectAlternates;
 //-------------------------finding the greatest number in an array -------------------------
 
 const findGreatestNumber = function(numbers) {
-  let greatestNumber = numbers.reduce(function(firstElement,secondElement) { if(firstElement>secondElement) return firstElement; return secondElement; } )
+  const findGreatest = function(firstElement,secondElement) {  
+    if( firstElement>secondElement ) {
+      return firstElement; 
+    }
+    return secondElement;
+  }
+  let greatestNumber = numbers.reduce( findGreatest );
   return greatestNumber;
 }
 
@@ -62,7 +83,14 @@ exports.findGreatestNumber = findGreatestNumber;
 //--------------------------finding the smallest number in an array--------------------------
 
 const findSmallestNumber = function(numbers) {
-  let smallestNumber = numbers.reduce(function(firstElement,secondElement) { if(firstElement<secondElement) return firstElement; return secondElement; } )
+  const findSmallest = function( firstElement,secondElement ) {
+    if(firstElement<secondElement) 
+    {
+      return firstElement;
+    }
+    return secondElement;
+  }
+  let smallestNumber = numbers.reduce( findSmallest );
   return smallestNumber;
 }
 
@@ -71,7 +99,11 @@ exports.findSmallestNumber = findSmallestNumber;
 //----------------------------find the average of all the elements in an array-------------------
 
 const findAverage = function(numbers) {
-  let average = numbers.reduce(function(firstElement,secondElement) { return firstElement+secondElement; }) / numbers.length;
+  const calcSum = function( firstElement,secondElement )   
+  {
+    return firstElement+secondElement; 
+  }
+  let average = numbers.reduce( calcSum ) / numbers.length;
   return average;
 }
 
@@ -80,7 +112,10 @@ exports.findAverage = findAverage;
 //-----------------------------map the length of an array elements---------------------------------
 
 const mapLengths = function(list) {
-  let lengthsMapping = list.map(function(element) { return element.length; } )
+  const findStringLengths = function(element) { 
+    return element.length; 
+  }
+  let lengthsMapping = list.map( findStringLengths );
   return lengthsMapping;
 }
 
@@ -90,7 +125,12 @@ exports.mapLengths = mapLengths;
 
 const countEvens = function(numbers) {
   let count = 0;
-  numbers.filter(function(element) { if (element%2 == 0) count++; return; } )
+  const isEven = function(element) { 
+    if (element%2 == 0) 
+      count++; 
+    return;
+  }
+  numbers.filter( isEven );
   return count;
 }
 
@@ -100,7 +140,12 @@ exports.countEvens = countEvens;
 
 const countOdds = function(numbers) {
   let count = 0;
-  numbers.filter(function(element) { if (element%2 != 0) count++; return; } )
+  const isOdd = function(element) { 
+    if (element%2 != 0) 
+      count++;
+    return; 
+  }
+  numbers.filter( isOdd );
   return count;
 }
 
@@ -110,7 +155,12 @@ exports.countOdds = countOdds;
 
 const findNumBelowThreshold  = function(numbers,number) {
   let count = 0;
-  numbers.filter(function(element) { if(element<number) count++; } )
+  const countElements = function(element) { 
+    if(element<number)
+      count++;
+    return;
+  }
+  numbers.filter( countElements );
   return count;
 }
 
@@ -120,7 +170,12 @@ exports.findNumBelowThreshold = findNumBelowThreshold;
 
 const findNumAboveThreshold = function(numbers,number) {
   let count = 0;
-  numbers.filter(function(element) { if(element>number) count++; } )
+  const countElements = function(element) { 
+    if(element>number)
+      count++;
+    return;
+  }
+  numbers.filter( countElements );
   return count;
 }
 
@@ -129,9 +184,16 @@ exports.findNumAboveThreshold = findNumAboveThreshold;
 //-----------------------------find index of the number---------------------------------------------
 
 const findIndex = function(numbers,number) {
-  let index = 0;
-  numbers.filter(function(element,position) { if(element == number) index = position; return; } )
-  return index;
+  let state = { index:0 , value:0 };
+  const findElementPosition = function( state,element ) {
+    if( element == number ) {
+      state.value = state.index;
+    return state;
+    }
+    state.index++;
+    return state; 
+  }
+  return numbers.reduce( findElementPosition , state ).value;
 }
 
 exports.findIndex = findIndex;
@@ -140,7 +202,12 @@ exports.findIndex = findIndex;
 
 const findUniques = function(list) {
   let uniqueElements = [];
-  list.filter(function(element) { if( !uniqueElements.includes(element) ) uniqueElements.push( element ); return; } )
+  const findUniqueElements = function(element) { 
+    if( !uniqueElements.includes(element) )
+      uniqueElements.push( element ); 
+    return; 
+  }
+  list.filter( findUniqueElements );
   return uniqueElements;
 }
 
@@ -150,8 +217,17 @@ exports.findUniques = findUniques;
 
 const findUnion = function(firstList,secondList) {
   let unionList = [];
-  firstList.filter(function(element) { if(!secondList.includes(element)) unionList.push(element); return; } )
-  secondList.filter(function(element) { if(!firstList.includes(element)) unionList.push(element); return; } )
+  const findUnionElements = function( element ) {
+    if( ! list2.includes( element ) ) 
+      unionList.push( element );
+    return;
+  }
+  let list1 = firstList;
+  let list2 = secondList;
+  firstList.filter( findUnionElements );
+  list2 = firstList;
+  list1 = secondList;
+  secondList.filter( findUnionElements );
   return unionList;
 }
 
@@ -161,8 +237,17 @@ exports.findUnion = findUnion;
 
 const findIntersection = function(firstList,secondList) {
   let intersectionList = [];
-  firstList.filter(function(element) { if(!secondList.includes(element)) intersectionList.push(element); return; } )
-  secondList.filter(function(element) { if(!intersectionList.includes(element)) intersectionList.push(element); return; } )
+  const findIntersectionElements = function(element) { 
+    if( !list2.includes(element)) 
+      intersectionList.push(element); 
+    return;
+  }
+  let list1 = firstList;
+  let list2 = secondList;
+  firstList.filter( findIntersectionElements );
+  list1 = secondList;
+  list2 = intersectionList;
+  secondList.filter( findIntersectionElements );
   return intersectionList;
 }
 
@@ -172,7 +257,12 @@ exports.findIntersection = findIntersection;
 
 const findDifference = function(firstList,secondList) {
   let difference = [];
-  firstList.filter(function(element) { if(!secondList.includes(element)) difference.push(element); return; } )
+  const findElementDifference = function(element) { 
+    if( !secondList.includes(element) ) 
+      difference.push( element ); 
+    return; 
+  }
+  firstList.filter( findElementDifference );
   return difference;
 }
 
@@ -181,7 +271,10 @@ exports.findDifference = findDifference;
 //---------------------------------check if first list is subset of second list------------------------------
 
 const isSubset = function(firstList,secondList) {
-  return firstList.every(function(element) { return secondList.includes(element); } );
+  const findSubset = function( element ) { 
+    return secondList.includes( element ); 
+  }
+  return firstList.every( findSubset );
 }
 
 exports.isSubset = isSubset;
@@ -190,14 +283,15 @@ exports.isSubset = isSubset;
 
 const isAscending = function(list) {
   let state = { prevState : true , prevElement : list[0] };
-  list.reduce(function(state,currentElement) { 
+
+  const isGreater = function(state,currentElement) { 
     let { prevState,prevElement } = state;
     state.prevState = (prevElement <= currentElement) && prevState;
     state.prevElement = currentElement;
     return state; 
-  } , state
-  )
-  return state.prevState;
+  }
+
+  return list.reduce( isGreater , state ).prevState;
 }
 
 exports.isAscending = isAscending;
@@ -205,15 +299,16 @@ exports.isAscending = isAscending;
 //-------------------------------------checks if the given list is in descending order or not-----------------------
 
 const isDescending = function( list ) {
-  let state = { prevState : true , prevElement : list[ 0 ] };
-  list.reduce(function ( state,currentElement ) { 
+  let state = { prevState : true , prevElement : list[0] };
+
+  const isSmaller = function(state,currentElement) { 
     let { prevState,prevElement } = state;
-    state.prevState = ( prevElement >= currentElement ) && prevState;
+    state.prevState = (prevElement >= currentElement) && prevState;
     state.prevElement = currentElement;
     return state; 
-  } , state
-  )
-  return state.prevState;
+  }
+
+  return list.reduce( isSmaller , state ).prevState;
 }
 
 exports.isDescending = isDescending;
@@ -222,11 +317,12 @@ exports.isDescending = isDescending;
 
 const zipLists = function( firstList,secondList ) {
   let state = { index:0 , value:[] };
-  return firstList.reduce( function( state,element ) {
+  const createZip = function( state,element ) {
     state.value[ state.index ] = [ element,secondList[ state.index ] ];
     state.index++;
     return state;
-  } , state ).value;
+  }
+  return firstList.reduce( createZip , state ).value;
 }
 
 exports.zipLists = zipLists;
@@ -243,7 +339,15 @@ exports.rotate = rotate;
 
 const partition = function( list,partitioner ) {
   let partitionHolder = { firstPartition : [] , secondPartition : [] };
-  result = list.reduce( function( partitionHolder,listElement ) { if( listElement<partitioner ) { partitionHolder.firstPartition.push( listElement ); return partitionHolder; } partitionHolder.secondPartition.push( listElement ); return partitionHolder; } , partitionHolder );
+  const createPartition = function( partitionHolder,listElement ) { 
+    if( listElement<partitioner ) {
+      partitionHolder.firstPartition.push( listElement );
+      return partitionHolder; 
+    }
+    partitionHolder.secondPartition.push( listElement ); 
+    return partitionHolder; 
+  }
+  result = list.reduce( createPartition , partitionHolder );
   return [ result.firstPartition,result.secondPartition ];
 }
 
