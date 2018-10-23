@@ -197,11 +197,11 @@ exports.isAscending = isAscending;
 
 //-------------------------------------checks if the given list is in descending order or not-----------------------
 
-const isDescending = function(list) {
-  let state = { prevState : true , prevElement : list[0] };
-  list.reduce(function(state,currentElement) { 
+const isDescending = function( list ) {
+  let state = { prevState : true , prevElement : list[ 0 ] };
+  list.reduce(function ( state,currentElement ) { 
     let { prevState,prevElement } = state;
-    state.prevState = (prevElement >= currentElement) && prevState;
+    state.prevState = ( prevElement >= currentElement ) && prevState;
     state.prevElement = currentElement;
     return state; 
   } , state
@@ -209,4 +209,17 @@ const isDescending = function(list) {
   return state.prevState;
 }
 
-exports.isDescending = isescending;
+exports.isDescending = isDescending;
+
+//--------------------------------------zip two arrays---------------------------------------------
+
+const zipLists = function( firstList,secondList ) {
+  let state = { index:0 , value:[] };
+  return firstList.reduce( function( state,element ) {
+    state.value[ state.index ] = [ element,secondList[ state.index ] ];
+    state.index++;
+    return state;
+  } , state ).value;
+}
+
+exports.zipLists = zipLists;
