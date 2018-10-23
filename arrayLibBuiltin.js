@@ -1,7 +1,10 @@
 //-----------------extracting even numbers in an array-------------------------
 
 const selectEvens = function(numbers) {
- let evenElements = numbers.filter( function(element) { return element%2 == 0 } )
+  const isEven = function( element ) {
+    return element%2 == 0;
+  }
+  let evenElements = numbers.filter( isEven )
   return evenElements;
 }
 
