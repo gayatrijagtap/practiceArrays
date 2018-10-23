@@ -223,3 +223,11 @@ const zipLists = function( firstList,secondList ) {
 }
 
 exports.zipLists = zipLists;
+
+//--------------------------------------rotate array elements--------------------------------------------
+
+const rotate = function( list,position ) {
+  return list.slice( position,list.length ).concat( list.slice( 0,position ) );
+}
+
+exports.rotate = rotate;
